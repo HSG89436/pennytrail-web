@@ -1,46 +1,131 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/pennytrail-web/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="PennyTrail - expense and budget tracker.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="PennyTrail">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>PennyTrail</title>
-  <link rel="manifest" href="manifest.json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PennyTrail - Expense & Budget Tracker</title>
+<meta name="description" content="PennyTrail is a simple, private expense and budget tracker for Android.">
+<style>
+  :root {
+    --green: #0AA553;
+    --green-dark: #079342;
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --card: #f5f7f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --muted: #a0a0a0;
+      --card: #1c1f1e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { text-align: center; margin-bottom: 40px; }
+  .logo {
+    width: 72px; height: 72px; border-radius: 20px;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 32px; font-weight: 700; color: white;
+  }
+  h1 { font-size: 32px; margin: 0 0 8px; }
+  .tagline { color: var(--muted); font-size: 18px; margin: 0; }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 32px 0; }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.88; }
+  .btn-primary { background: var(--green); color: white; }
+  .btn-secondary { background: var(--card); color: var(--text); border: 1px solid rgba(128,128,128,0.25); }
+  section { margin: 48px 0; }
+  h2 { font-size: 22px; margin-bottom: 16px; }
+  ul.features { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  ul.features li {
+    background: var(--card);
+    padding: 16px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  ul.features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .price-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+  }
+  .price { font-size: 36px; font-weight: 700; color: var(--green); }
+  .price span { font-size: 16px; font-weight: 400; color: var(--muted); }
+  .note {
+    background: var(--card);
+    border-left: 3px solid var(--green);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .install-steps { color: var(--muted); font-size: 14px; margin-top: 12px; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 64px; }
+  footer a { color: var(--muted); }
+</style>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+<div class="wrap">
+  <header>
+    <div class="logo">$</div>
+    <h1>PennyTrail</h1>
+    <p class="tagline">A simple, private expense &amp; budget tracker</p>
+  </header>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
-  <script src="flutter_bootstrap.js" async></script>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://github.com/HSG89436/pennytrail-web/releases/download/v1.0.1/app-release.apk">Download for Android — Free</a>
+  </div>
+  <p class="install-steps" style="text-align:center;">
+    Android will warn about installing from outside the Play Store — tap "Install anyway" / allow "unknown sources" when prompted. This is normal for apps not yet listed on Google Play.
+  </p>
+
+  <section>
+    <h2>What it does</h2>
+    <ul class="features">
+      <li>Track income and expenses across multiple accounts</li>
+      <li>Organize spending into custom categories</li>
+      <li>See where your money goes at a glance</li>
+      <li>All data stored privately on your device — nothing uploaded anywhere</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Premium — $2.99/month</h2>
+    <div class="price-card">
+      <div class="price">$2.99<span> / month</span></div>
+      <p style="margin: 12px 0 0;">Unlocks data export &amp; import</p>
+    </div>
+    <p class="note" style="margin-top:16px;">
+      Premium purchases currently only work once PennyTrail is listed on Google Play (in-app billing requires it). Until then, all core features above are free to use.
+    </p>
+  </section>
+
+  <footer>
+    <p>PennyTrail is a fork of <a href="https://github.com/nafishahmeddev/fintracker">fintracker</a> (MIT License).</p>
+  </footer>
+</div>
 </body>
 </html>
